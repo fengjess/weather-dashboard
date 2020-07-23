@@ -2,62 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
-    <link rel="stylesheet" href="assets/style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/style.css" />
     <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1 w-100 text-center">Weather Dashboard</span>
+    <!-- Nav header -->
+    <nav class="navbar navbar-dark bg-dark justify-content-center">
+        <div class="container-fluid-nav">
+            <div class="navbar-header">
+                <span class="navbar-brand mb-0 h1" style="font-size: 36px">Weather Dashboard</span>
+            </div>
+        </div>
     </nav>
 
+    <!-- City search input -->
     <div class="container">
         <div class="row">
-            <div class="col-4 bg-light">
-                <p class="searchHeader my-1">Search for a city:</p>
-                <div class="input-group mb-3">
-                    <input id="cityInput" type="text" class="form-control" placeholder="" aria-label=""/>
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="searchButton"><i class="fas fa-search"></i></button>
+            <div class="col-md-3 bg-light pb-3 pt-3">
+                <aside>
+                    <form class="form-inline my-2 my-lg-0">
+                        <label for="citySearch">Search for a City:</label>
+                        <input class="form-control mr-0" type="search" placeholder="Search" aria-label="Search"
+                            id="city-search-input">
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit" id="city-search-btn">
+                            <i class="fas fa-search"></i></button>
+                    </form>
+                    <br>
+                    <!-- City list -->
+                    <div class="list-group" id="city-list">
                     </div>
-                </div>
-                <form id="history"></form>
+                </aside>
             </div>
-            <div class="col-8">
-                <div class="row mr-0">
-                    <div class="col-12 border border-dark m-3 rounded">
-                        <div class="row">
-                            <div class="col-12">
-                                <span id="cityName" class="city-name align-middle"></span>
-                                <img id="currentPicture" src="placeholder" alt="" />
+            <!-- Weather display -->
+            <div class="col-md-9" id="city-column" style="visibility: hidden">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mt-3">
+                            <div class="card-body" id="weather-data">
                             </div>
                         </div>
-
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <h3>5-Day Forecast:</h3>
-                    </div>
+                <br>
+                <!-- 5-day forecast -->
+                <div class="row ml-1">
+                    <h2>5-Day Forecast:</h2>
                 </div>
-                <div class="row">
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                <!-- 5-day forecast display -->
+                <div class="row" id="forecast-data">
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="assets/script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="assets./script.js"></script>
 </body>
 
 </html>
