@@ -11,7 +11,9 @@ A weather dashboard application with search functionality to find current weathe
 
 ## Screenshots
 
+![Screen Shot 2020-07-23 at 12 53 10 AM](https://user-images.githubusercontent.com/65512016/88264459-a25b6400-cc80-11ea-9693-079680fa0c76.png)
 
+![Weather Dashboard](https://user-images.githubusercontent.com/65512016/88264534-c028c900-cc80-11ea-8ed7-853744fbc68b.gif)
 
 ## URL
 
