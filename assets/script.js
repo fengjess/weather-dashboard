@@ -151,3 +151,9 @@ function getCityWeather(event) {
     localStorage.setItem(lastSearchName, lastSearchIndex);
     displayWeatherData();
 }
+
+$("#clearHistory").click(function() {
+    localStorage.clear();
+    location.reload();
+});
+
