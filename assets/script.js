@@ -1,3 +1,4 @@
+// API URL
 const endPoint = "https://api.openweathermap.org/data/2.5/";
 const current = "weather?q=";
 const oneCall1 = "onecall?lat=";
@@ -13,6 +14,7 @@ var lastSearchIndex = -1;
 getSavedSearches(); 
 $("#city-search-btn").click(doSearch); 
 
+// Pulls saved searches from localstorage
 function getSavedSearches() {
     var searchList = JSON.parse(localStorage.getItem(savedSearchesName));
 
@@ -25,6 +27,7 @@ function getSavedSearches() {
     }
 }
 
+// Saves searches to localstorage
 function setSavedSearches() {
     if (savedSearches.length > 0) {
         localStorage.setItem(lastSearchName, lastSearchIndex);
@@ -32,6 +35,7 @@ function setSavedSearches() {
     }
 }
 
+// List of saved searches in buttons
 function displaySavedSearches() {
     const listItemDef1 = '<a href="#" class="list-group-item list-group-item-action" value=';
     const listItemDef2 = '>';
@@ -47,6 +51,7 @@ function displaySavedSearches() {
     $(".list-group-item-action").click(getCityWeather);
 }
 
+// Pulls city information then saves search
 function getCityInfo(cityName) {
         var newCityInfo = {}; 
         var openWeatherURL = endPoint + current + cityName + APIkey;
@@ -65,6 +70,7 @@ function getCityInfo(cityName) {
         })
 }
 
+// Displays weather data
 function displayWeatherData() {
     const htmlH2 = '<h2 class="card-title">';
     const htmlImg = '<img src="';
@@ -82,6 +88,7 @@ function displayWeatherData() {
     const htmlSpan = '<span class="p-2 rounded text-white ';
     const htmlSpanEnd = '"</span>';
 
+    // Displays different colors for UV levels
     function getUVcolor(uvi) {
         var backgroundColor = ""; 
         if (!(Number.isNaN(uvi))) {
@@ -102,6 +109,7 @@ function displayWeatherData() {
         var openWeatherURL = endPoint + oneCall1 + savedSearches[lastSearchIndex].lat + 
             oneCall2 + savedSearches[lastSearchIndex].lon + oneCall3 + APIkey;
 
+        // Calls for weather and 5-day forecast data
         $.ajax({
             url: openWeatherURL,
             method: "GET"
@@ -137,6 +145,7 @@ function displayWeatherData() {
     }
 }
 
+// Search button
 function doSearch(event) {
     event.preventDefault();
     var citySearchInput = $("#city-search-input");
@@ -145,6 +154,7 @@ function doSearch(event) {
     getCityInfo(city);
 }
 
+// City button
 function getCityWeather(event) {
     event.preventDefault();
     lastSearchIndex = $(this).attr("value");
@@ -152,6 +162,7 @@ function getCityWeather(event) {
     displayWeatherData();
 }
 
+// Clear button
 $("#clearHistory").click(function() {
     localStorage.clear();
     location.reload();
